@@ -42,6 +42,7 @@ setup(
     zip_safe=False,
 
     install_requires=[
-        "sokort"
+        "sokort",
+        "pandas",
     ],
 )
