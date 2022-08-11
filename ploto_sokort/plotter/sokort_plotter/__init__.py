@@ -1,4 +1,3 @@
-import subprocess
 from pathlib import Path
 from typing import Dict
 
@@ -13,10 +12,17 @@ logger = get_logger("sokort_plotter")
 
 def run_plotter(task: Dict, work_dir: Path, config: Dict):
     """
+    使用 sokort 绘制图片。
+
+    前提：
+
+    1. 已准备好绘图需要的数据，比如已将 CMADaaS 文件名转为绘图脚本可以识别的文件名。
+    2. 已配置 sokort 运行环境，包括在 config 中指定配置文件路径，将绘图程序包部署在运行节点中
 
     Parameters
     ----------
     task
+        绘图任务定义
 
         .. code-block:: py
 
@@ -33,14 +39,17 @@ def run_plotter(task: Dict, work_dir: Path, config: Dict):
 
 
     work_dir
+        工作目录
     config
+        配置参数，包含 sokort 的配置文件路径
 
         .. code-block:: py
 
             {
                 "sokort": {
                     "config_file_path": "config file path"
-                }
+                },
+                # ...
             }
 
     Returns
